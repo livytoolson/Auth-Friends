@@ -8,16 +8,21 @@ import Friends from './components/Friends';
 import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
+  const logout = () => {
+
+  }
+
   return (
     <Router>
       <div className="App">
-        <h1>My Friends</h1>
         <header className="appHeader">
-              <Link to="/login">Login</Link>
-              <Link to="/protected">Friends</Link>
+              <Link className="header" to="/login">Login</Link>
+              <Link className="header" to="#">Log Out</Link>
+              <Link className="header" to="/friends">Friends</Link>
         </header>
+        <h1>FRIENDS</h1>
         <Switch>
-          <PrivateRoute exact path="/protected" component={Friends}/>
+          <PrivateRoute exact path="/friends" component={Friends}/>
 
           <Route path="/login" component={Login}/>
           <Route component={Login}/>

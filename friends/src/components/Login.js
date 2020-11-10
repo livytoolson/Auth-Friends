@@ -28,7 +28,7 @@ const Login = () => {
         .post('/api/login', state.credentials)
         .then((res) => {
             window.localStorage.setItem('token', res.data.payload)
-            history.push('/protected')
+            history.push('/friends')
         })
         .catch((err) => console.log(err))
     }
@@ -39,14 +39,14 @@ const Login = () => {
                 <input className="loginInput"
                 type="text"
                 name="username"
-                placeholder="username"
+                placeholder="Username"
                 value={state.credentials.username}
                 onChange={handleChange}
                 />
                 <input className="loginInput"
                 type="password"
                 name="password"
-                placeholder="password"
+                placeholder="Password"
                 value={state.credentials.password}
                 onChange={handleChange}
                 />
