@@ -21,10 +21,10 @@ const Friends = () => {
     }, [])
 
     return (
-        <div>
+        <div className="friendList">
             {friends.map(friend => {
                 return (
-                    <div key={friend.id}>
+                    <div className="friend" key={friend.id}>
                         <h3>{friend.name}</h3>
                         <p>Age: {friend.age}</p>
                         <p>{friend.email}</p>

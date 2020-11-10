@@ -30,22 +30,22 @@ const FriendForm = () => {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input 
+            <form className="friendForm" onSubmit={handleSubmit}>
+                <input className="input"
                 type="text"
                 name="name"
                 placeholder="Name"
                 value={newFriend.name}
                 onChange={handleChange}
                 />
-                <input 
+                <input className="input"
                 type="text"
                 name="age"
                 placeholder="Age"
                 value={newFriend.age}
                 onChange={handleChange}
                 />
-                <input 
+                <input className="input"
                 type="text"
                 name="email"
                 placeholder="Email"

@@ -5,23 +5,22 @@ import './App.css';
 
 import Login from './components/Login';
 import Friends from './components/Friends';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <div><h1>My Friends</h1></div>
-        <nav>
-          <ul>
-            <ul><Link to="/">Home</Link></ul>
-              <ul><Link to="/friends">Friends</Link></ul>
-          </ul>
-        </nav>
+        <h1>My Friends</h1>
+        <header>
+            {/* <ul><Link to="/">Home</Link></ul> */}
+              <Link to="/login">Login</Link>
+              {/* <Link to="/protected">Friends</Link> */}
+        </header>
         <Switch>
-          <PrivateRoute path="/friends" component={Friends}/>
+          <PrivateRoute path="/protected" component={Friends}/>
           <Route path="/login" component={Login}/>
-          <Route component={Login}/>
+          {/* <Route component={Login}/> */}
         </Switch>
       </div>
     </Router>
