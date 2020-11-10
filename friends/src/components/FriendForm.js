@@ -14,9 +14,9 @@ function FriendForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post()
-            .then()
-            .catch()
+            .post('http://localhost:5000/api/friends')
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
         setNewFriend(initialFormValues);
     }
 
@@ -32,18 +32,21 @@ function FriendForm() {
                 type="text"
                 name="name"
                 placeholder="Name"
+                value={newFriend.name}
                 onChange={handleChange}
                 />
                 <input 
                 type="text"
                 name="age"
                 placeholder="Age"
+                value={newFriend.age}
                 onChange={handleChange}
                 />
                 <input 
                 type="text"
                 name="email"
                 placeholder="Email"
+                value={newFriend.email}
                 onChange={handleChange}
                 />
 

@@ -13,22 +13,19 @@ function App() {
     <Router>
       <div className="App">
         <ul>
-          <ul>
             <Link to="/login">Login</Link>
-          </ul>
-          <ul>
             <Link to="/protected">Friends</Link>
-          </ul>
+            <Link to="/addfriend">Add Friend</Link>
         </ul>
         <Switch>
           <PrivateRoute exact path="/protected" component={Friends}/>
+          <PrivateRoute path="/addfriend" component={FriendForm}/>
           <Route path="/login" component={Login}/>
           <Route component={Login}/>
-          <Route component={FriendForm}/>
         </Switch>
       </div>
     </Router>
     );
-}
+};
 
 export default App;
