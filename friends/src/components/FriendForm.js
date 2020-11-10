@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const initialFormValues = {
     id: Date.now(),
@@ -8,14 +9,16 @@ const initialFormValues = {
     email: ''
 }
 
-function FriendForm() {
+const FriendForm = () => {
     const[newFriend, setNewFriend] = useState(initialFormValues)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios
-            .post('http://localhost:5000/api/friends')
-            .then((res) => console.log(res))
+        axiosWithAuth()
+            .post('/api/friends', newFriend)
+            .then((res) => {
+                setNewFriend(res.data)
+            })
             .catch((err) => console.log(err))
         setNewFriend(initialFormValues);
     }
@@ -50,7 +53,7 @@ function FriendForm() {
                 onChange={handleChange}
                 />
 
-                <button onClick={handleSubmit}>Add Friend</button>
+                <button type="submit" onSubmit={handleSubmit}>Add Friend</button>
             </form>
         </div>
     )

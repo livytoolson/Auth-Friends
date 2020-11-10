@@ -5,21 +5,21 @@ import './App.css';
 
 import Login from './components/Login';
 import Friends from './components/Friends';
-import FriendForm from './components/FriendForm';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <ul>
-            <Link to="/login">Login</Link>
-            <Link to="/protected">Friends</Link>
-            <Link to="/addfriend">Add Friend</Link>
-        </ul>
+        <div><h1>My Friends</h1></div>
+        <nav>
+          <ul>
+            <ul><Link to="/">Home</Link></ul>
+              <ul><Link to="/friends">Friends</Link></ul>
+          </ul>
+        </nav>
         <Switch>
-          <PrivateRoute exact path="/protected" component={Friends}/>
-          <PrivateRoute path="/addfriend" component={FriendForm}/>
+          <PrivateRoute path="/friends" component={Friends}/>
           <Route path="/login" component={Login}/>
           <Route component={Login}/>
         </Switch>
