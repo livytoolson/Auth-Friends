@@ -7,7 +7,7 @@ import FriendForm from './FriendForm';
 const Friends = () => {
     const[friends, setFriends] = useState([])
 
-    const getData = () => {
+    const getFriends = () => {
         axiosWithAuth()
             .get('/api/friends')
             .then(res => {
@@ -17,11 +17,13 @@ const Friends = () => {
     }
 
     useEffect(() => {
-        getData()
-    }, [])
+        getFriends();
+    }, []);
 
     return (
-        <div className="friendList">
+        <div>
+            <FriendForm setFriends={setFriends}/>
+            <div className="friendList">
             {friends.map(friend => {
                 return (
                     <div className="friend" key={friend.id}>
@@ -31,9 +33,7 @@ const Friends = () => {
                     </div>
                 )
             })}
-            <div>
-                <FriendForm />
-            </div>
+        </div>
         </div>
     )
 };

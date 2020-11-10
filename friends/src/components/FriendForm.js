@@ -9,47 +9,47 @@ const initialFormValues = {
     email: ''
 }
 
-const FriendForm = () => {
-    const[newFriend, setNewFriend] = useState(initialFormValues)
+const FriendForm = ({ setFriends }) => {
+    const[formValue, setFormValue] = useState(initialFormValues)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axiosWithAuth()
-            .post('/api/friends', newFriend)
+            .post('/api/friends', formValue)
             .then((res) => {
-                setNewFriend(res.data)
+                setFriends(res.data)
             })
             .catch((err) => console.log(err))
-        setNewFriend(initialFormValues);
+        setFormValue(initialFormValues);
     }
 
     const handleChange = (e) => {
-        setNewFriend({
-            ...newFriend, 
+        setFormValue({
+            ...formValue, 
             [e.target.name]: e.target.value})
     }
     return (
         <div>
             <form className="friendForm" onSubmit={handleSubmit}>
-                <input className="input"
+                <input className="friendInput"
                 type="text"
                 name="name"
                 placeholder="Name"
-                value={newFriend.name}
+                value={formValue.name}
                 onChange={handleChange}
                 />
-                <input className="input"
+                <input className="friendInput"
                 type="text"
                 name="age"
                 placeholder="Age"
-                value={newFriend.age}
+                value={formValue.age}
                 onChange={handleChange}
                 />
-                <input className="input"
+                <input className="friendInput"
                 type="text"
                 name="email"
                 placeholder="Email"
-                value={newFriend.email}
+                value={formValue.email}
                 onChange={handleChange}
                 />
 

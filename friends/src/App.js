@@ -12,15 +12,15 @@ function App() {
     <Router>
       <div className="App">
         <h1>My Friends</h1>
-        <header>
-            {/* <ul><Link to="/">Home</Link></ul> */}
+        <header className="appHeader">
               <Link to="/login">Login</Link>
-              {/* <Link to="/protected">Friends</Link> */}
+              <Link to="/protected">Friends</Link>
         </header>
         <Switch>
-          <PrivateRoute path="/protected" component={Friends}/>
+          <PrivateRoute exact path="/protected" component={Friends}/>
+
           <Route path="/login" component={Login}/>
-          {/* <Route component={Login}/> */}
+          <Route component={Login}/>
         </Switch>
       </div>
     </Router>
