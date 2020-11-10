@@ -5,19 +5,15 @@ import './App.css';
 
 import Login from './components/Login';
 import Friends from './components/Friends';
-import PrivateRoute from './utils/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-  const logout = () => {
-
-  }
 
   return (
     <Router>
       <div className="App">
         <header className="appHeader">
               <Link className="header" to="/login">Login</Link>
-              <Link className="header" to="#">Log Out</Link>
               <Link className="header" to="/friends">Friends</Link>
         </header>
         <h1>FRIENDS</h1>

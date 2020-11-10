@@ -55,9 +55,6 @@
   margin: .2rem;
 }
 
-.loginParent {
-}
-
 .loginForm {
   display: flex;
   flex-direction: column;

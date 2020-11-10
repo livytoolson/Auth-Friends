@@ -12,13 +12,17 @@ const initialCredentials = {
 
 const Login = () => {
     const[state, setState] = useState(initialCredentials)
+    const[isLoading, setIsLoading] = useState(true)
 
     const history = useHistory();
 
     const handleChange = (e) => {
         setState({
-            ...state.credentials,
-            [e.target.name]: e.target.value
+            ...state,
+            credentials: {
+                ...state.credentials,
+            [   e.target.name]: e.target.value
+            }
         })
     };
 
@@ -29,6 +33,7 @@ const Login = () => {
         .then((res) => {
             window.localStorage.setItem('token', res.data.payload)
             history.push('/friends')
+            setIsLoading(false)
         })
         .catch((err) => console.log(err))
     }
